@@ -1,0 +1,17 @@
+dev
+workspace
+downloads
+documents
+Settings
+
+.*
+!.gitignore
+!.gitconfig
+!.global_gitignore
+!.gitmodules
+!.oh-my-zsh
+!.vim
+!.vimrc
+!.zshrc
+!.oh-my-zsh
+!.profile
