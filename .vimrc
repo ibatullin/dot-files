@@ -35,3 +35,7 @@ set wrap
 
 set ffs=unix,dos,mac
 set fencs=utf-8,cp1251,koi8-r,ucs-2,cp866
+
+" enable solarized
+set background=dark
+colorscheme solarized
