@@ -4,6 +4,16 @@ downloads
 documents
 Settings
 
+# Mac
+Applications
+Desktop
+Library
+Movies
+Music
+Pictures
+Public
+
+# dots
 .*
 !.gitignore
 !.gitconfig
