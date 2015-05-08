@@ -13,7 +13,6 @@ set ts=2                          " set indent to 2 spaces
 set shiftwidth=2
 set expandtab
 set nocompatible                  " don't need to be compatible with old vim
-set relativenumber                " show relative line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
@@ -29,6 +28,12 @@ set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
+
+if exists('+relativenumber')
+  set relativenumber                " show relative line numbers
+else
+  set number
+end
 
 set smarttab
 set wrap
