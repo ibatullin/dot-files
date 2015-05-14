@@ -33,16 +33,37 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras rails ruby rvm web-search)
+plugins=(
+# Productivity
+  colored-man colorize urltools web-search
+
+# FS jumping
+ pj
+
+# Build tools
+  git git-extras gitignore
+
+# Ruby
+  bundler gem rails rake ruby rvm thor
+
+# Distro-related
+  debian suse yum
+
+# MacOS
+  brew
+)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+EDITOR=(vim)
+
+# pj plugin
+PROJECT_PATHS=(~/workspace)
+
+# Paths
 export PATH="$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 export PATH="$HOME/bin:$PATH"
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
