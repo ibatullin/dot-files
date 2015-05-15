@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+cd ~
+
+echo "Pulling..."
+git pull > /dev/null 2>&1
+
+echo "Updating submodules..."
+git submodule foreach git pull origin master > /dev/null 2>&1
+
+echo "Updating oh-my-zsh..."
+cd ~/.oh-my-zsh
+git fetch upstream && git rebase upstream/master > /dev/null 2>&1
+
+echo "Done updating"
+cd ~
+git status -s -b
