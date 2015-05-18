@@ -72,3 +72,17 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 
+gerrit() {
+  CMD="$1"
+  BRANCH="$2"
+  if [ "x$CMD" = "x" ] || [ "x$BRANCH" = "x" ]; then
+    echo "Usage: $0 push|draft BRANCH" >&2
+    return 1
+  fi
+
+  if [ "$CMD" = "push" ]; then
+    git push origin HEAD:refs/for/$BRANCH
+  elif [ "$CMD" = "draft" ]; the
+    git push origin HEAD:refs/drafts/$BRANCH
+  fi
+}
