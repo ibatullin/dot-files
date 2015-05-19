@@ -82,7 +82,7 @@ gerrit() {
 
   if [ "$CMD" = "push" ]; then
     git push origin HEAD:refs/for/$BRANCH
-  elif [ "$CMD" = "draft" ]; the
+  elif [ "$CMD" = "draft" ]; then
     git push origin HEAD:refs/drafts/$BRANCH
   fi
 }
