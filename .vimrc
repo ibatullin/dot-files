@@ -44,3 +44,20 @@ set fencs=utf-8,cp1251,koi8-r,ucs-2,cp866
 " enable solarized
 set background=dark
 colorscheme solarized
+
+
+let os=substitute(system('uname'), '\n', '', '')
+
+" Cyrillic
+if os == 'Darwin' || os == 'Mac'
+  set keymap=russian-jcukenmac
+elseif os == 'Linux'
+  set keymap=russian-jcukenwin
+endif
+
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+" yo ё
+set spelllang=ru_yo,en_us
