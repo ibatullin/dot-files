@@ -41,6 +41,11 @@ set wrap
 set ffs=unix,dos,mac
 set fencs=utf-8,cp1251,koi8-r,ucs-2,cp866
 
+" nerdtree settings
+" autocmd vimenter * NERDTree " open nerdtree automatically
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if nerdtree is open only
+
 " enable solarized
 set background=dark
 colorscheme solarized
