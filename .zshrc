@@ -78,11 +78,11 @@ gerrit() {
   CMD="$1"
   BRANCH="$2"
   if [ "x$CMD" = "x" ] || [ "x$BRANCH" = "x" ]; then
-    echo "Usage: $0 push|draft BRANCH" >&2
+    echo "Usage: $0 review|draft BRANCH" >&2
     return 1
   fi
 
-  if [ "$CMD" = "push" ]; then
+  if [ "$CMD" = "review" ]; then
     git push origin HEAD:refs/for/$BRANCH
   elif [ "$CMD" = "draft" ]; then
     git push origin HEAD:refs/drafts/$BRANCH
