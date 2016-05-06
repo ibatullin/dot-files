@@ -71,6 +71,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/dev/npm/bin"
 
 # Aliases
+alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 
