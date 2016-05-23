@@ -5,3 +5,15 @@
 	editor = vim
 [alias]
   lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+  # http://helpfulsheep.com/2016-03-22-what-git-i-do-last-month/
+  slm =  "!f() { \
+    username=$(git config user.name);\
+    author=${1-$username};\
+    commits=$(git log --author=\"$author\" --no-merges --before=$(date \"+%Y-%m-01T00:00\") --after=$(date -d \"-$(date +%d) days -1 month\" \"+%Y-%m-%dT23:59\") --reverse | grep commit | wc -l); \
+    changed=$(git log --author=\"$author\" --no-merges --before=$(date \"+%Y-%m-01T00:00\") --after=$(date -d \"-$(date +%d) days -1 month\" \"+%Y-%m-%dT23:59\") --reverse --stat | grep -Eo \"[0-9]{1,} files? changed\" | grep -Eo \"[0-9]{1,}\" | awk \"{ sum += \\$1 } END { print sum }\"); \
+    insertions=$(git log --author=\"$author\" --no-merges --before=$(date \"+%Y-%m-01T00:00\") --after=$(date -d \"-$(date +%d) days -1 month\" \"+%Y-%m-%dT23:59\") --reverse --stat | grep -Eo \"[0-9]{1,} insertions?\" | grep -Eo \"[0-9]{1,}\" | awk \"{ sum += \\$1 } END { print sum }\"); \
+    deletions=$(git log --author=\"$author\" --no-merges --before=$(date \"+%Y-%m-01T00:00\") --after=$(date -d \"-$(date +%d) days -1 month\" \"+%Y-%m-%dT23:59\") --reverse --stat | grep -Eo \"[0-9]{1,} deletions?\" | grep -Eo \"[0-9]{1,}\" | awk \"{ sum += \\$1 } END { print sum }\"); \
+    echo $author; \
+    echo $commits commits, $changed files changed, $insertions insertions and $deletions deletions last month; \
+  }; f"
