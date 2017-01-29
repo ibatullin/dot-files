@@ -61,14 +61,16 @@ EDITOR=(vim)
 PROJECT_PATHS=(~/workspace)
 
 # Paths
-export PATH="$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-export PATH="$HOME/bin:$PATH"
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+path+=('/usr/lib/lightdm/lightdm' '/usr/local/sbin' '/usr/local/bin'
+       '/usr/sbin' '/usr/bin' '/sbin' '/bin' '/usr/games')
+path+=('/usr/local/heroku/bin') # Added by the Heroku Toolbelt
+path+=("$HOME/.rvm/bin")        # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 ### NPM
-export PATH="$PATH:$HOME/dev/npm/bin"
+path+=("$HOME/dev/npm/bin")
+
+path+=("$HOME/bin" $path)
+export PATH
 
 # Aliases
 alias v='vim'
