@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/bundle/dash-vim"]
+	path = .vim/bundle/dash-vim
+	url = https://github.com/rizzatti/dash.vim
