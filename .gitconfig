@@ -17,3 +17,48 @@
     echo $author; \
     echo $commits commits, $changed files changed, $insertions insertions and $deletions deletions last month; \
   }; f"
+
+
+  # https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/
+
+  # Leaderboards
+  # git stats
+  stats = shortlog -sn --all --no-merges
+
+  # Show Changed Words Instead of Whole Lines
+  # git worddiff
+  worddiff = diff --word-diff
+
+  # See Which Branches You Recently Worked On
+  # git recent
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+
+  # See What Everyone’s Been Getting Up To
+  # git overview
+  # git overview --since='2 weeks'
+  overview = log --all --oneline --no-merges
+
+  # Remind Yourself What You’ve Been Up To
+  # git recap
+  recap = log --all --oneline --no-merges --author=timur@ibatullin.com
+
+  # Today’s Work
+  # git today
+  today = log --since=00:00:00 --all --no-merges --oneline --author=timur@ibatullin.com
+
+  # Check Which Changes You’re About to Pull
+  # git upstream origin/feature/fonts
+  upstream = "!f() { git log --oneline --no-merges HEAD..origin/$1; }; f"
+
+  # Review What You’re About to Push
+  # git local feature/fonts
+  local = "!f() { git log --oneline --no-merges origin/$1..HEAD; }; f"
+
+  # Generate a Changelog
+  # git changelog 1.0
+  changelog = "!f() { git log --oneline --no-merges $1..HEAD; }; f"
+
+  # View Complex Logs
+  # git graph
+  graph = log --graph --all --decorate --stat --date=iso
+
