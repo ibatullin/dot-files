@@ -79,6 +79,7 @@ export PATH
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias dash='f() { open dash://$1; }; f'
 
 gerrit() {
   CMD="$1"
