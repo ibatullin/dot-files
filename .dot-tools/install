@@ -1,0 +1,8 @@
+REPO_PATH=~/.dot-files
+HOME_PATH=~
+
+git clone --bare https://github.com/ibatullin/dot-files $REPO_PATH
+cd $HOME_PATH
+echo "gitdir: $REPO_PATH" > $HOME_PATH/.git
+git submodule init
+git submodule update --recursive
