@@ -1,20 +1,7 @@
-dev
-workspace
-downloads
-documents
-Settings
-
-# Mac
-Applications
-Desktop
-Library
-Movies
-Music
-Pictures
-Public
+# Ignore the whole world
+*
 
 # dots
-.*
 !.gitignore
 !.gitconfig
 !.global_gitignore
@@ -25,3 +12,4 @@ Public
 !.zshrc
 !.oh-my-zsh
 !.profile
+!.dot-tools/
