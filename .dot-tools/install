@@ -2,31 +2,55 @@ REPO_PATH=~/.dot-files
 HOME_PATH=~
 COMMAND=$1
 
+if which tput >/dev/null 2>&1; then
+    ncolors=$(tput colors)
+fi
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+  RED="$(tput setaf 1)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  BOLD="$(tput bold)"
+  NORMAL="$(tput sgr0)"
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  BOLD=""
+  NORMAL=""
+fi
+
+
 updateSubmodules() {
-  printf "\nUpdating submodules..."
+  printf "${BLUE}\nUpdating submodules...\n${NORMAL}"
   git submodule init
   git submodule update --recursive
+
+  printf "${GREEN}"
+  echo "Done!"
+  printf "${NORMAL}"
 }
 
 initRepository() {
-  echo "Initialize repository..."
+  echo "${BLUE}Initialize repository...${NORMAL}"
   cd $HOME_PATH
   git init --separate-git-dir $REPO_PATH
   git remote add origin https://github.com/ibatullin/dot-files
 
-  printf "\n\nFetching...\n"
+  printf "${BLUE}\nFetching...\n${NORMAL}"
   git fetch
   git branch master origin/master
 
-  printf "\n\nCheckout to master branch\n"
+  printf "${BLUE}\nCheckout to master branch\n${NORMAL}"
   git checkout master
   if [ $? -ne 0 ]; then
-    printf "\n\nUnable to checkout branch\n"
+    printf "${YELLOW}\nUnable to checkout branch\n${NORMAL}"
     echo "1. Switch to master branch manually:"
-    echo "   $ git checkout master"
+    echo "${BOLD}   $ git checkout master${NORMAL}"
     echo "2. Resolve conflicts"
     echo "3. Run the script:"
-    echo "   $ $HOME_PATH/.dot-tools/install submodules"
+    echo "${BOLD}   $ $HOME_PATH/.dot-tools/install submodules${NORMAL}"
   else
     updateSubmodules
   fi
@@ -38,7 +62,7 @@ main() {
   elif [ "$COMMAND" = "" ]; then
     initRepository
   else
-    echo "Unknown command"
+    echo "${YELLOW}Unknown command${NORMAL}"
   fi
 }
 
