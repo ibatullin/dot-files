@@ -1,8 +1,45 @@
 REPO_PATH=~/.dot-files
 HOME_PATH=~
+COMMAND=$1
 
-git clone --bare https://github.com/ibatullin/dot-files $REPO_PATH
-cd $HOME_PATH
-echo "gitdir: $REPO_PATH" > $HOME_PATH/.git
-git submodule init
-git submodule update --recursive
+updateSubmodules() {
+  printf "\nUpdating submodules..."
+  git submodule init
+  git submodule update --recursive
+}
+
+initRepository() {
+  echo "Initialize repository..."
+  cd $HOME_PATH
+  git init --separate-git-dir $REPO_PATH
+  git remote add origin https://github.com/ibatullin/dot-files
+
+  printf "\n\nFetching...\n"
+  git fetch
+  git branch master origin/master
+
+  printf "\n\nCheckout to master branch\n"
+  git checkout master
+  if [ $? -ne 0 ]; then
+    printf "\n\nUnable to checkout branch\n"
+    echo "1. Switch to master branch manually:"
+    echo "   $ git checkout master"
+    echo "2. Resolve conflicts"
+    echo "3. Run the script:"
+    echo "   $ $HOME_PATH/.dot-tools/install submodules"
+  else
+    updateSubmodules
+  fi
+}
+
+main() {
+  if [ "$COMMAND" = "submodules" ]; then
+    updateSubmodules
+  elif [ "$COMMAND" = "" ]; then
+    initRepository
+  else
+    echo "Unknown command"
+  fi
+}
+
+main
