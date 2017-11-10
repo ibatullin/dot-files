@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippets>
+    <snippet group="C++" trigger="namespace" id="cpp_namespace" complement="" removed="false" modified="true">namespace $name$ {
+    $$
+} // namespace $name$</snippet>
+    <snippet group="C++" trigger="qmlListProperty" id="" complement="" removed="false" modified="false">public:
+    QQmlListProperty&lt;$itemClass:c$&gt; $items$()
+    {
+        return QQmlListProperty&lt;$itemClass:c$&gt;(this, this,
+                                        &amp;$Class$::append$item:c$,
+                                        &amp;$Class$::$item$Count,
+                                        &amp;$Class$::$item$,
+                                        &amp;$Class$::clear$items:c$);
+    }
+
+    void append$item:c$($itemClass:c$ *$item$)
+    {
+        $item$-&gt;setParent(this);
+        m_$items$.append($item$);
+    }
+
+    int $item$Count() const
+    {
+        return m_$items$.size();
+    }
+
+    $itemClass:c$ *$item$(int index) const
+    {
+        return m_$items$.at(index);
+    }
+
+    void clear$items:c$()
+    {
+        m_$items$.clear();
+    }
+
+private:
+    static void append$item:c$(QQmlListProperty&lt;$itemClass:c$&gt; *list, $itemClass:c$ *$item$)
+    {
+        reinterpret_cast&lt;$Class$ *&gt;(list-&gt;data)-&gt;append$item:c$($item$);
+    }
+
+    static int $item$Count(QQmlListProperty&lt;$itemClass:c$&gt; *list)
+    {
+        return reinterpret_cast&lt;$Class$ *&gt;(list-&gt;data)-&gt;$items$Count();
+    }
+
+    static $itemClass:c$ *$item$(QQmlListProperty&lt;$itemClass:c$&gt; *list, int index)
+    {
+        return reinterpret_cast&lt;$Class$ *&gt;(list-&gt;data)-&gt;$item$(index);
+    }
+
+    static void clear$items:c$(QQmlListProperty&lt;$itemClass:c$&gt; *list)
+    {
+        reinterpret_cast&lt;$Class$ *&gt;(list-&gt;data)-&gt;clear$items:c$();
+    }
+    
+    QVector&lt;$itemClass:c$ *&gt; m_$items$;    
+</snippet>
+</snippets>
