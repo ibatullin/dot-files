@@ -1,3 +1,2 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-$DIR/qtcreator-backup/qtcreator-backup restore all --backup ~/.config/QtCreatorConfig/
-
+$DIR/qtcreator-backup/qtcreator-backup restore all --backup ~/.dot-configs/qtcreator/
