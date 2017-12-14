@@ -43,3 +43,6 @@
 [submodule ".dot-tools/qtcreator-backup"]
 	path = .dot-tools/qtcreator-backup
 	url = https://github.com/ibatullin/qtcreator-backup
+[submodule ".vim/bundle/vim-vue"]
+	path = .vim/bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git
