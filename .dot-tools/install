@@ -1,3 +1,10 @@
+
+# via curl:
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ibatullin/dot-files/master/.dot-tools/install)"
+#
+# via wget
+# sh -c "$(wget https://raw.githubusercontent.com/ibatullin/dot-files/master/.dot-tools/install)"
+
 REPO_PATH=~/.dot-files
 HOME_PATH=~
 COMMAND=$1
