@@ -50,9 +50,6 @@ plugins=(
 
 # Distro-related
   debian suse yum
-
-# MacOS
-  brew
 )
 
 source $ZSH/oh-my-zsh.sh
