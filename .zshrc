@@ -77,6 +77,7 @@ alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias dash='f() { open dash://$1; }; f'
+alias flow='git flow'
 
 gerrit() {
   CMD="$1"
