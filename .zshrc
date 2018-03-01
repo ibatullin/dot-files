@@ -66,6 +66,7 @@ path+=('/usr/local/heroku/bin') # Added by the Heroku Toolbelt
 path+=("$HOME/.rvm/bin")        # Add RVM to PATH for scripting
 path+=('/usr/local/go/bin')
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+path+=("$HOME/dev/Qt/5.10.1/clang_64/bin")
 ### NPM
 path+=("$HOME/dev/npm/bin")
 
