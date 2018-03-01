@@ -95,6 +95,9 @@ gerrit() {
   fi
 }
 
+# Load iTerm2 shell integration
+source ~/.dot-tools/iterm2_shell_integration.zsh
+eval "$(pyenv init -)"
 
 # Use vim cli mode
 bindkey -v
