@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-flatbuffers"]
 	path = .vim/bundle/vim-flatbuffers
 	url = https://github.com/zchee/vim-flatbuffers.git
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
