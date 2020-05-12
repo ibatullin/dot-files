@@ -35,9 +35,10 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
 # Productivity
-  colored-man colorize urltools web-search env extract thefuck
+  colorize urltools web-search extract thefuck
 
-  docker
+# Docker
+  docker-compose
 
 # FS jumping
   pj
@@ -46,7 +47,7 @@ plugins=(
   git git-extras gitignore git-flow
 
 # Ruby
-  bundler gem rails rake ruby rvm thor
+  bundler gem rails rake ruby rvm
 
 # Distro-related
   debian suse yum
