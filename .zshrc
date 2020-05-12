@@ -63,15 +63,19 @@ PROJECT_PATHS=(~/workspace)
 # Paths
 path+=('/usr/lib/lightdm/lightdm' '/usr/local/sbin' '/usr/local/bin'
        '/usr/sbin' '/usr/bin' '/sbin' '/bin' '/usr/games')
-path+=('/usr/local/heroku/bin') # Added by the Heroku Toolbelt
 path+=("$HOME/.rvm/bin")        # Add RVM to PATH for scripting
 path+=('/usr/local/go/bin')
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-path+=("$HOME/dev/Qt/5.10.1/clang_64/bin")
-### NPM
-path+=("$HOME/dev/npm/bin")
 
+path+=("$HOME/dev/Qt/5.12.2/clang_64/bin")
+path+=("$HOME/dev/Qt/Tools/QtInstallerFramework/3.0/bin")
+
+path+=("$HOME/.local/bin")
+path+=('/usr/local/bin') # Homebrew
 path+=("$HOME/bin" $path)
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 export PATH
 
 # Aliases
