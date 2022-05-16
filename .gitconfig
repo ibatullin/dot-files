@@ -65,6 +65,13 @@
   # git stage
   staged = diff --cached
 
+  # git stash show
+
+  stashed = "!f() { git stash show stash@{$1} -p; }; f"
+
+  # All tags with date
+  tags = tag -l --sort=-creatordate --format='%(creatordate:short):  %(refname:short)'
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
