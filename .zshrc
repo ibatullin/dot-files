@@ -40,8 +40,8 @@ plugins=(
 # Docker
   docker-compose
 
-# FS jumping
-  pj
+# jumping
+  pj autojump z
 
 # Build tools
   git git-extras gitignore git-flow
@@ -49,8 +49,8 @@ plugins=(
 # Ruby
   bundler gem rails rake ruby rvm
 
-# Distro-related
-  debian suse yum
+# zsh
+  alias-finder
 )
 
 source $ZSH/oh-my-zsh.sh
