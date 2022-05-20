@@ -8,10 +8,6 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="ibatullin"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -80,8 +76,12 @@ export PATH
 
 # Aliases
 alias v='vim'
+alias fzp='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias vv='v $(fzp)'
+alias c='bat'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias gitconfig='vim ~/.gitconfig'
 alias dash='f() { open dash://$1; }; f'
 alias flow='git flow'
 alias git='LANG=en_US git'
